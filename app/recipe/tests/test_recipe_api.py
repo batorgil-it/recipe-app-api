@@ -177,7 +177,7 @@ class PrivateRecipeApiTests(TestCase):
 
         payload = {'title': 'Chicken tikka', 'tags': [new_tag.id]}
         url = detail_url(recipe.id)
-        res = self.client.patch(url, payload)
+        self.client.patch(url, payload)
 
         recipe.refresh_from_db()
         self.assertEqual(recipe.title, payload['title'])
